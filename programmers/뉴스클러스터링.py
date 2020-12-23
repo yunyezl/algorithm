@@ -28,4 +28,6 @@ def solution(str1, str2):
     return math.trunc(a/b*65536)
     
     
-# isalpha() 함수를 알았다면 더 간단히 해결할 수 있음
+# isalpha() 함수를 알았다면 더 간단히 해결할 수 있음, divide 함수  11, 12번째를 다음과 같이 바꾸면 더 간단하고 빨라짐
+# nt = [ str1[i:i+2].lower() for i in range(len(str1)-1) if str1[i:i+2].isalpha() ]
+# deno = [ str2[i:i+2].lower() for i in range(len(str2)-1) if str2[i:i+2].isalpha() ]
