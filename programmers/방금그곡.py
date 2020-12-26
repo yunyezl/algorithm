@@ -1,11 +1,14 @@
 import re
 
+def change(code):
+    return code.replace('C#', 'c').replace('D#', 'd').replace('F#','f').replace('G#','g').replace('A#','a')
+
 def solution(m, musicinfos):
     mi = {}
 
     for i in musicinfos:
         start, end, title, code = i.split(',')
-        code = code.replace('C#', 'c').replace('D#', 'd').replace('F#','f').replace('G#','g').replace('A#','a')
+        code = change(code)
         start_h, start_m, end_h, end_m = map(int, start.split(':') + end.split(':'))
         playTime = 60*(end_h-start_h) + (end_m-start_m)
         if playTime > len(code):
@@ -18,9 +21,9 @@ def solution(m, musicinfos):
         mi[title] = [''.join(playLine), playTime]
 
     candidate = []
-    m = m.replace('C#', 'c').replace('D#', 'd').replace('F#','f').replace('G#','g').replace('A#','a')
+    m = change(m)
     for title, info in mi.items():
-        info[0] = info[0].replace('C#', 'c').replace('D#', 'd').replace('F#','f').replace('G#','g').replace('A#','a')
+        info[0] = change(info[0])
         if m in info[0]:
             candidate.append([title, mi[title][1]])
 
