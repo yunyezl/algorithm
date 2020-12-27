@@ -1,7 +1,6 @@
 def solution(skill, skill_trees):
     answer = 0
     
-    skilltree = []
     for st in skill_trees:
         for i in st:
             if i not in skill:
