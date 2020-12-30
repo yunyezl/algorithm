@@ -16,3 +16,4 @@ def solution(name):
     return answer
     
 #그리디
+#문제가 좀 이상함. 완전탐색이어야 할 것 같다.
