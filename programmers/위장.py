@@ -12,3 +12,5 @@ def solution(clothes):
         cnt *= (len(clothesdict[key])+1)
 
     return cnt - 1
+
+#경우의 수 공식
