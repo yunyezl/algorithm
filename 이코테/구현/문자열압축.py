@@ -1,35 +1,28 @@
+def union_str(compress, cnt, standard):
+    if cnt > 1:
+        compress += str(cnt) + standard
+    else:
+        compress += standard
+    return compress
+
 def solution(s):
     answer = 0
-    
-    if len(s) == 1:
-        return 1;
-    
-    allCase = []
-    for i in range(1, len(s)//2+1):
-        slicelist = [ s[j:j+i] for j in range(0, len(s), i) ]
-        allCase.append(slicelist)
         
     allLength = []    
-    for case in allCase:
+    for i in range(1, len(s)//2+1):
+        case = [ s[j:j+i] for j in range(0, len(s), i) ]
         cnt = 1
         standard = case[0]
         compress = ''
-        minLength = 1001
         for i in range(1, len(case)):
             if standard == case[i]:
                 cnt += 1
             else:
-                if cnt > 1:
-                    compress += str(cnt) + standard
-                else:
-                    compress += standard
+                compress = union_str(compress, cnt, standard)
                 standard = case[i]
                 cnt = 1
         else:
-            if cnt > 1:
-                compress += str(cnt) + standard
-            else:
-                compress += standard
+            compress = union_str(compress, cnt, standard)
         allLength.append(len(compress))
     
-    return min(allLength)
+    return min(allLength) if len(s) > 1 else 1
